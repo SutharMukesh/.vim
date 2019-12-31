@@ -135,3 +135,8 @@ vnoremap <Space> zf
 " Automatically save and load folds
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview"
+
+" Call the .vimrc.plug file
+if filereadable(expand(".vimrc.plug"))
+    source .vimrc.plug
+endif
