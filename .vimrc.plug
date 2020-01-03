@@ -3,4 +3,17 @@ call plug#begin('~/.vim/plugged')
 "Fugitive Vim Github Wrapper
 Plug 'tpope/vim-fugitive'
 
+" Auto completion - Use release branch (Recommend)
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run the install script
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+" Auto Pairs
+Plug 'jiangmiao/auto-pairs'
+
+" Auto Format
+Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+
+
 call plug#end()
