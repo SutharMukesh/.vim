@@ -1,3 +1,5 @@
+" --------------------Default config-------------------
+
 " Get the defaults that most users want.
 source $VIMRUNTIME/defaults.vim
 
@@ -35,101 +37,61 @@ endif " has("autocmd")
 
 " Add optional packages.
 "
-" The matchit plugin makes the % command work better, but it is not backwards
-" compatible.
-" The ! means the package won't be loaded right away but when plugins are
-" loaded during initialization.
+" The matchit plugin makes the % command work better, but it is not backwards compatible.
+" The ! means the package won't be loaded right away but when plugins are loaded during initialization.
 if has('syntax') && has('eval')
   packadd! matchit
 endif
 
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Set compatibility to Vim only.
+" --------------------Custom config-------------------
+set relativenumber
 set nocompatible
-
-" Helps force plug-ins to load correctly when it is turned back on below.
-filetype off
-
-" Turn on syntax highlighting.
 syntax on
-
-" For plug-ins to load correctly.
-filetype plugin indent on
-
-" Turn off modelines
-set modelines=0
-
-" Automatically wrap text that extends beyond the screen length.
-set wrap
-
-" Vim's auto indentation feature does not work properly with text copied from outside of Vim. Press the <F2> key to toggle paste mode on/off.
-nnoremap <F2> :set invpaste paste?<CR>
-imap <F2> <C-O>:set invpaste paste?<CR>
-set pastetoggle=<F2>
-
-" Uncomment below to set the max textwidth. Use a value corresponding to the width of your screen.
-" set textwidth=79
-set formatoptions=tcqrn1
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set expandtab
-set noshiftround
-
-" Display 5 lines above/below the cursor when scrolling with a mouse.
-set scrolloff=5
-" Fixes common backspace problems
-set backspace=indent,eol,start
-
-" Speed up scrolling in Vim
-set ttyfast
-
-" Status bar
-set laststatus=2
-
-" Display options
 set showmode
 set showcmd
-
-" Highlight matching pairs of brackets. Use the '%' character to jump between them.
-set matchpairs+=<:>
-
-" Display different types of white spaces.
-set list
-set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
-
-" Show line numbers
-set number
-
-" Set status line display
-" set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ [BUFFER=%n]\ %{strftime('%c')}
-
-" Encoding
+set t_Co=256
+" set cursorline
+set wrap
+filetype plugin indent on
 set encoding=utf-8
+set clipboard=unnamedplus
+let mapleader = " "
 
-" Highlight matching search patterns
-set hlsearch
-" Enable incremental search
-set incsearch
-" Include matching uppercase words with lowercase search term
-set ignorecase
-" Include only uppercase words with uppercase search term
-set smartcase
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab " use spaces instead of tabs.
+set smarttab " let's tab key insert 'tab stops', and bksp deletes tabs.
+set shiftround " tab / shifting moves to closest tabstop.
+set autoindent " Match indents on new lines.
+set smartindent " Intellegently dedent / indent new lines based on rules.
 
-" Store info from no more than 100 files at a time, 9999 lines of text, 100kb of data. Useful for copying large amounts of data between files.
-set viminfo='100,<9999,s100
+" We have VCS -- we don't need this stuff.
+set nobackup " We have vcs, we don't need backups.
+set nowritebackup " We have vcs, we don't need backups.
+set noswapfile " They're just annoying. Who likes them?
 
-" Map the <Space> key to toggle a selected fold opened/closed.
-nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
-vnoremap <Space> zf
+" don't nag me when hiding buffers
+set hidden " allow me to have buffers with unsaved changes.
+set autoread " when a file has changed on disk, just load it. Don't ask.
 
-" Automatically save and load folds
-autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent loadview"
+" Make search more sane
+set ignorecase " case insensitive search
+set smartcase " If there are uppercase letters, become case-sensitive.
+set incsearch " live incremental searching
+set showmatch " live match highlighting
+set hlsearch " highlight matches
+set gdefault " use the `g` flag by default.
 
+" So we don't have to reach for escape to leave insert mode.
+inoremap jf <esc>
+
+" create new vsplit, and switch to it.
+noremap <leader>v <C-w>v
+
+
+" --------------------Plugin-------------------
 
 call plug#begin('~/.vim/plugged')
 
@@ -138,7 +100,7 @@ Plug 'tpope/vim-fugitive'
 
 " Auto completion - Use release branch (Recommend)
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
+"
 " PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run the install script
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
@@ -154,4 +116,8 @@ call plug#end()
 " if filereadable(expand(".vimrc.plug"))
 "    source .vimrc.plug
 " endif
+
+
+
+
 
