@@ -74,6 +74,8 @@ Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
+Plug 'lervag/vimtex'
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 
 call plug#end()
 "
@@ -96,6 +98,7 @@ set wrap
 filetype plugin indent on
 set clipboard=unnamedplus
 let mapleader = " "
+let maplocalleader = ";"
 set wildmode=longest,list,full
 
 set tabstop=4
@@ -129,6 +132,9 @@ set gdefault " use the `g` flag by default.
 
 " So we don't have to reach for escape to leave insert mode.
 inoremap jf <esc>
+let g:vimtex_view_general_viewer = 'SumatraPDF'
+let g:livepreview_previewer = 'SumatraPDF'
+
 
 " SHORTCUTS
 " create new vsplit, and switch to it.
@@ -145,6 +151,7 @@ vnoremap <C-c> "+y
 map <C-v> "+P
 
 colorscheme gruvbox
+
 " Call the .vimrc.plug file
 " if filereadable(expand(".vimrc.plug"))
 "    source .vimrc.plug
