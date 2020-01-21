@@ -62,7 +62,8 @@ Plug 'morhetz/gruvbox'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "
 " PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run the install script
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Auto Pairs
 Plug 'jiangmiao/auto-pairs'
@@ -74,15 +75,35 @@ Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
+Plug 'ctrlpvim/ctrlp.vim'
+
+Plug 'valloric/youcompleteme'
+
+Plug 'tpope/vim-surround'
+
+"Plug 'scrooloose/syntastic'
+
+Plug 'scrooloose/nerdcommenter'
+
+Plug 'plasticboy/vim-markdown'
+
+Plug 'junegunn/goyo.vim'
+
+Plug 'mhinz/vim-startify'
+
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+
+Plug 'vim-scripts/TaskList.vim'
 
 call plug#end()
 "
 
 " --------------------Custom config-------------------
+set bg=dark
 set encoding=utf-8
 set fileencoding=utf-8
 set termencoding=utf-8
-
+set cursorline
 set number
 set relativenumber
 set nocompatible
@@ -94,7 +115,7 @@ set t_Co=256
 syntax on
 set wrap
 filetype plugin indent on
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 let mapleader = " "
 set wildmode=longest,list,full
 
@@ -125,7 +146,7 @@ set hlsearch " highlight matches
 set gdefault " use the `g` flag by default.
 
 " Automatically deletes all trailing whitespace on save.
-	autocmd BufWritePre * %s/\s\+$//e
+	"autocmd BufWritePre * %s/\s\+$//e
 
 " So we don't have to reach for escape to leave insert mode.
 inoremap jf <esc>
@@ -142,7 +163,7 @@ noremap <leader>n :NERDTreeToggle<CR>
 
 " Copy Paste
 vnoremap <C-c> "+y
-map <C-v> "+P
+" map <C-> "+P
 
 colorscheme gruvbox
 " Call the .vimrc.plug file
