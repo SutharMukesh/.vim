@@ -117,6 +117,8 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+map <leader><space> :let @/=''<cr> " clear search
+
 " Copy Paste
 vnoremap <C-c> "+y
 " map <C-> "+P
