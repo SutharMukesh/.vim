@@ -134,3 +134,12 @@ vnoremap <C-c> "+y
 " let g:airline_powerline_fonts = 1
 " let g:Powerline_symbols = 'fancy'
 " set guifont=Liberation_Mono_for_Powerline:h10
+
+" Git Gutter
+set updatetime=250
+let g:gitgutter_enabled = 1
+noremap <leader>hf :GitGutterFold<CR>
+noremap <leader>gb :Gblame<CR>
+highlight GitGutterAdd guifg=#009900 ctermfg=Green
+highlight GitGutterChange guifg=#bbbb00 ctermfg=Yellow
+highlight GitGutterDelete guifg=#ff2222 ctermfg=Red
