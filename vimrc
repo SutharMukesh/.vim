@@ -56,7 +56,7 @@ call plug#end()
 "
 
 " --------------------Custom config-------------------
-"set bg=dark
+set bg=dark
 "set encoding=utf-8
 "set fileencoding=utf-8
 "set termencoding=utf-8
@@ -122,7 +122,7 @@ map <leader><space> :let @/=''<cr> " clear search
 " Copy Paste
 vnoremap <C-c> "+y
 " map <C-> "+P
-autocmd vimenter * ++nested colorscheme gruvbox
+autocmd vimenter * nested colorscheme gruvbox
 " colorscheme gruvbox
 
 " Call the .vimrc.plug file
