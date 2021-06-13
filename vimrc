@@ -10,7 +10,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Color Scheme
-" Plug 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
 
 " Auto completion - Use release branch (Recommend)
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -122,7 +122,7 @@ map <leader><space> :let @/=''<cr> " clear search
 " Copy Paste
 vnoremap <C-c> "+y
 " map <C-> "+P
-
+autocmd vimenter * ++nested colorscheme gruvbox
 " colorscheme gruvbox
 
 " Call the .vimrc.plug file
