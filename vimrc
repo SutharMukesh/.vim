@@ -61,6 +61,7 @@ set bg=dark
 "set fileencoding=utf-8
 "set termencoding=utf-8
 "set cursorline
+set number
 set relativenumber
 set nocompatible
 set showmode
